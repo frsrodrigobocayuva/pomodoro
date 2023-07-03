@@ -38,25 +38,33 @@ function startTimer(){
 
         }
 
-        startBtn.style.display = "none";
-        pauseBtn.style.display = "block";
-
     },10)
+    startBtn.style.display = "none";
+    pauseBtn.style.display = "block";
 }
 
 function pauseTimer(){
     isPaused = true;
     pauseBtn.style.display = "none";
-    resumeBtn.style.display = "block"
-
+    resumeBtn.style.display = "block";
 }
 
 function resumeTimer(){
-
+    isPaused = false;
+    resumeBtn.style.display = "none";
+    pauseBtn.style.display = "block";
 }
 
 function resetTimer(){
+    clearInterval(interval)
+    minutes = 0;
+    seconds = 0;
+    minutesEl.textContent = "00";
+    secondsEl.textContent = "00";
 
+    startBtn.style.display = "block";
+    pauseBtn.style.display = "none";
+    resumeBtn.style.display = "none";
 }
 
 function FormatTimer(time){
