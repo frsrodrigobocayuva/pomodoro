@@ -33,8 +33,8 @@ function startTimer(){
             seconds = 0;
         }    
 
-        minutesEl.textContent = minutes;
-        secondsEl.textContent = seconds;
+        minutesEl.textContent = FormatTimer(minutes);
+        secondsEl.textContent = FormatTimer(seconds);
 
         }
 
@@ -57,4 +57,8 @@ function resumeTimer(){
 
 function resetTimer(){
 
+}
+
+function FormatTimer(time){
+    return time < 10 ? `0${time}` : time;
 }
