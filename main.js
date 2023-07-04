@@ -1,9 +1,11 @@
-const minutesEl = document.querySelector("#minutes")
-const secondsEl = document.querySelector("#seconds")
-const startBtn = document.querySelector("#startBtn")
-const pauseBtn = document.querySelector("#pauseBtn")
-const resumeBtn = document.querySelector("#resumeBtn")
-const resetBtn = document.querySelector("#resetBtn")
+const minutesEl = document.querySelector("#minutes");
+const secondsEl = document.querySelector("#seconds");
+const startBtn = document.querySelector("#startBtn");
+const pauseBtn = document.querySelector("#pauseBtn");
+const resumeBtn = document.querySelector("#resumeBtn");
+const resetBtn = document.querySelector("#resetBtn");
+const studyMsg = document.querySelector("#studyMsg");
+var hasStudied = false;
 
 
 let interval;
@@ -19,6 +21,40 @@ resetBtn.addEventListener("click", resetTimer);
 
 function startTimer(){
     interval = setInterval(() =>{
+
+        if(minutes <= 29 && seconds <=59 && !hasStudied){
+            studyMsg.textContent = "Estude até o minuto 30!"
+          
+        }
+        else{
+            studyMsg.textContent = "Agora você pode descansar por 5 minutos!"
+        }
+
+        if(minutes == 30 && !hasStudied){
+            clearInterval(interval);
+            minutes = 0;
+            seconds = 0;
+            minutesEl.textContent = "00";
+            secondsEl.textContent = "00";
+            startBtn.style.display = "block";
+            pauseBtn.style.display = "none";
+            resumeBtn.style.display = "none";
+            hasStudied = true;
+        }
+
+        if(hasStudied == true){
+            if(minutes == 5){
+                clearInterval(interval);
+                minutes = 0;
+                seconds = 0;
+                minutesEl.textContent = "00";
+                secondsEl.textContent = "00";
+                startBtn.style.display = "block";
+                pauseBtn.style.display = "none";
+                resumeBtn.style.display = "none";
+                hasStudied = false;
+            }
+        }
 
         if(!isPaused){
             milliseconds += 10;
@@ -56,7 +92,7 @@ function resumeTimer(){
 }
 
 function resetTimer(){
-    clearInterval(interval)
+    clearInterval(interval);
     minutes = 0;
     seconds = 0;
     minutesEl.textContent = "00";

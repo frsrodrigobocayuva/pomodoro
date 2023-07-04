@@ -48,6 +48,7 @@
 
 .btn:hover{
     transform: scale(1.1);
+    background-color: rgb(215, 215, 215);
 }
 
 #pauseBtn,
