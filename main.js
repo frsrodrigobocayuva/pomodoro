@@ -6,6 +6,7 @@ const resumeBtn = document.querySelector("#resumeBtn");
 const resetBtn = document.querySelector("#resetBtn");
 const studyMsg = document.querySelector("#studyMsg");
 var hasStudied = false;
+var isCounting = false;
 
 
 let interval;
@@ -77,6 +78,7 @@ function startTimer(){
     },10)
     startBtn.style.display = "none";
     pauseBtn.style.display = "block";
+    isCounting = true;
 }
 
 function pauseTimer(){
@@ -106,3 +108,8 @@ function resetTimer(){
 function FormatTimer(time){
     return time < 10 ? `0${time}` : time;
 }
+    window.addEventListener("beforeunload", function(event) {
+        if(isCounting){
+            event.returnValue = "Mensagem de aviso";
+        }
+    });
