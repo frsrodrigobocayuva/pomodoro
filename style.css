@@ -15,6 +15,15 @@
     font-size: 30px;
 }
 
+.containerAbout{
+    background-color: #f1f1f1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
 .timer{
     font-size: 55px;
     display: flex;
@@ -72,4 +81,16 @@
     text-decoration: none;
     color: black;
     padding-bottom: 1rem;
+}
+
+#textosAbout{
+    font-size: 30px;
+    padding-top: 3rem;
+}
+
+#textosAbout2{
+    font-size: 20px;
+    padding-top: 3rem;
+    width: 30rem;
+    text-align: center;
 }
