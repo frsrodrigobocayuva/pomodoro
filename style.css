@@ -17,7 +17,7 @@
 
 .containerAbout{
     background-color: #f1f1f1;
-    height: 100vh;
+    height: 92vh;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -67,7 +67,9 @@
 
 .header{
     display: flex;
-    padding: 1% 0% 0% 15%;
+    padding: 1% 0% 0% 0.8%;
+    align-items: center;
+    justify-content: center;
 }
 
 .header__menu{
@@ -93,4 +95,8 @@
     padding-top: 3rem;
     width: 30rem;
     text-align: center;
+}
+
+#apple{
+    padding-top: 0.4rem;
 }
