@@ -8,6 +8,8 @@ const studyMsg = document.querySelector("#studyMsg");
 var hasStudied = false;
 var isCounting = false;
 
+const audio = document.querySelector('audio');
+
 
 let interval;
 let minutes = 0;
@@ -41,6 +43,8 @@ function startTimer(){
             pauseBtn.style.display = "none";
             resumeBtn.style.display = "none";
             hasStudied = true;
+            alertEstudou();
+            audio.play();
         }
 
         if(hasStudied == true){
@@ -54,6 +58,8 @@ function startTimer(){
                 pauseBtn.style.display = "none";
                 resumeBtn.style.display = "none";
                 hasStudied = false;
+                alertDescansou();
+                audio.play();
             }
         }
 
@@ -113,3 +119,21 @@ function FormatTimer(time){
             event.returnValue = "Mensagem de aviso";
         }
     });
+
+function alertEstudou(){
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Parabéns!Você completou os 30 minutos de estudo!',
+        showConfirmButton: true
+      })
+}
+
+function alertDescansou(){
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Você completou os 5 minutos de descanso, agora pode voltar a estudar!',
+        showConfirmButton: true
+      })
+}
